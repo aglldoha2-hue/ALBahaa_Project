@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>براند عبايات</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <h1>عبايات البهاء</h1>
+    <nav>
+        <a href="#">الرئيسية</a>
+        <a href="#products">المجموعة</a>
+        <a onclick="openContact()">تواصل معنا</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <h2>أحدث تصاميم العبايات الفخمة</h2>
+        <p>أناقة، بساطة، وفخامة</p>
+       <a href="#products" class="shop-btn">
+    تسوق الآن
+</a>
+    </div>
+
+    <div class="hero-image">
+        <img src="imagess/abaya white.jpg">
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+
+<h2>منتجاتنا</h2>
+
+<div class="tabs">
+    <button class="tab" onclick="showTab('black')">سوداء</button>
+    <button class="tab" onclick="showTab('casual')">كاجوال</button>
+    <button class="tab" onclick="showTab('formal')">رسمية</button>
+</div>
+<!-- BLACK -->
+<div class="tab-content" id="black">
+    <div class="products-container">
+
+        <div class="card" data-title="عباية سوداء ملكية" data-code="B101" data-price="350" data-type="كلوش" data-fabric="كريب ملكي" data-img="imagess/black1.jpg">
+            <img src="imagess/black1.jpg">
+        </div>
+
+        <div class="card" data-title="عباية سوداء فخمة" data-code="B102" data-price="420" data-type="كلاسيك" data-fabric="شيفون" data-img="imagess/black2.jpg">
+            <img src="imagess/black2.jpg">
+        </div>
+
+        <div class="card" data-title="عباية سوداء ناعمة" data-code="B103" data-price="300" data-type="كلوش" data-fabric="كريب" data-img="imagess/BLACK10.jpg">
+            <img src="imagess/BLACK10.jpg">
+        </div>
+
+        <div class="card" data-title="عباية سوداء مطرزة" data-code="B104" data-price="500" data-type="فخمة" data-fabric="أورغانزا" data-img="imagess/black4.jpg">
+            <img src="imagess/black4.jpg">
+        </div>
+
+        <div class="card" data-title="عباية سوداء بسيطة" data-code="B105" data-price="280" data-type="يومي" data-fabric="كريب" data-img="imagess/BLACK8.jpg">
+            <img src="imagess/BLACK8.jpg">
+        </div>
+
+        <div class="card" data-title="عباية سوداء ملكية 2" data-code="B106" data-price="450" data-type="فخمة" data-fabric="كريب ملكي" data-img="imagess/BLACK9.jpg">
+            <img src="imagess/BLACK9.jpg">
+        </div>
+
+    </div>
+</div>
+
+<!-- CASUAL -->
+<div class="tab-content" id="casual">
+    <div class="products-container">
+        <div class="card" data-title="كاجوال 1" data-code="C101" data-price="250" data-type="كاجوال" data-fabric="قطن" data-img="imagess/casual1.jpg"><img src="imagess/casual1.jpg"></div>
+        <div class="card" data-title="كاجوال 2" data-code="C102" data-price="260" data-type="كاجوال" data-fabric="كريب" data-img="imagess/casual2.jpg"><img src="imagess/casual2.jpg"></div>
+        <div class="card" data-title="كاجوال 3" data-code="C103" data-price="270" data-type="كاجوال" data-fabric="لينن" data-img="imagess/casual3.jpg"><img src="imagess/casual3.jpg"></div>
+        <div class="card" data-title="كاجوال 4" data-code="C104" data-price="240" data-type="كاجوال" data-fabric="قطن" data-img="imagess/CASUAL7.jpg"><img src="imagess/CASUAL7.jpg"></div>
+        <div class="card" data-title="كاجوال 5" data-code="C105" data-price="255" data-type="كاجوال" data-fabric="كريب" data-img="imagess/CASUAL8.jpg"><img src="imagess/CASUAL8.jpg"></div>
+        <div class="card" data-title="كاجوال 6" data-code="C106" data-price="265" data-type="كاجوال" data-fabric="قطن" data-img="imagess/CASUAL9.jpg"><img src="imagess/CASUAL9.jpg"></div>
+    </div>
+</div>
+
+<!-- FORMAL -->
+<div class="tab-content" id="formal">
+    <div class="products-container">
+        <div class="card" data-title="رسمية 1" data-code="F101" data-price="600" data-type="رسمية" data-fabric="حرير" data-img="imagess/formal1.jpg"><img src="imagess/formal1.jpg"></div>
+        <div class="card" data-title="رسمية 2" data-code="F102" data-price="650" data-type="رسمية" data-fabric="ستان" data-img="imagess/formal2.jpg"><img src="imagess/formal2.jpg"></div>
+        <div class="card" data-title="رسمية 3" data-code="F103" data-price="700" data-type="رسمية" data-fabric="حرير" data-img="imagess/formal3.jpg"><img src="imagess/formal3.jpg"></div>
+        <div class="card" data-title="رسمية 4" data-code="F104" data-price="720" data-type="رسمية" data-fabric="ستان" data-img="imagess/formal4.jpg"><img src="imagess/formal4.jpg"></div>
+        <div class="card" data-title="رسمية 5" data-code="F105" data-price="680" data-type="رسمية" data-fabric="حرير" data-img="imagess/formal5.jpg"><img src="imagess/formal5.jpg"></div>
+        <div class="card" data-title="رسمية 6" data-code="F106" data-price="750" data-type="رسمية" data-fabric="ستان" data-img="imagess/formal6.jpg"><img src="imagess/formal6.jpg"></div>
+    </div>
+</div>
+
+</section>
+
+<!-- VIDEO -->
+<section class="video-section">
+    <div class="video-text">
+        <h2>لمسة من الفخامة</h2>
+        <p>تفاصيل راقية وأناقة</p>
+    </div>
+
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="videos/fashion.mp4">
+        </video>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span onclick="closeContact()" class="close-btn">&times;</span>
+
+       <h2>تواصل معنا</h2>
+
+<div class="contact-icons">
+
+    <a href="https://wa.me/218945007107" target="_blank" class="icon whatsapp">
+        📞 واتساب
+    </a>
+
+    <a href="https://www.instagram.com/Albaha_abayas" target="_blank" class="icon instagram">
+        📸 إنستغرام
+    </a>
+
+    <a href="https://www.snapchat.com/add/albahaa.a" target="_blank" class="icon snapchat">
+        👻 سناب شات
+    </a>
+
+    <a href="https://maps.app.goo.gl/HQHi5CpzveYGGgkDA?g_st=ipc" target="_blank" class="icon map">
+        📍 الموقع
+    </a>
+
+</div>
+    </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeProduct()">&times;</span>
+
+        <img id="modalImage">
+        <h2 id="modalTitle"></h2>
+        <p id="modalCode"></p>
+        <p id="modalPrice"></p>
+        <p id="modalType"></p>
+        <p id="modalFabric"></p>
+    </div>
+</div>
+
+<footer>
+<p>©️ جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+
+// tabs
+function showTab(id){
+
+    document.querySelectorAll(".tab-content").forEach(e=>{
+        e.style.display="none";
+    });
+
+    document.querySelectorAll(".tab").forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    document.getElementById(id).style.display="flex";
+
+    event.target.classList.add("active");
+}
+document.addEventListener("DOMContentLoaded", ()=>{
+
+    document.getElementById("black").style.display="flex";
+
+    document.querySelector(".tab").classList.add("active");
+
+});
+// contact
+function openContact(){
+    document.getElementById("contactModal").style.display="flex";
+}
+function closeContact(){
+    document.getElementById("contactModal").style.display="none";
+}
+
+// product modal
+document.querySelectorAll(".card").forEach(card=>{
+    card.addEventListener("click", ()=>{
+
+        const modal = document.getElementById("productModal");
+        modal.style.display="flex";
+
+        document.getElementById("modalImage").src = card.dataset.img;
+        document.getElementById("modalTitle").innerText = card.dataset.title;
+        document.getElementById("modalCode").innerText = "الكود: " + card.dataset.code;
+        document.getElementById("modalPrice").innerText = "السعر: " + card.dataset.price;
+        document.getElementById("modalType").innerText = "النوع: " + card.dataset.type;
+        document.getElementById("modalFabric").innerText = "القماش: " + card.dataset.fabric;
+
+    });
+});
+
+// close modal
+function closeProduct(){
+    document.getElementById("productModal").style.display="none";
+}
+
+// click outside
+window.onclick = function(e){
+    if(e.target.id==="productModal") closeProduct();
+    if(e.target.id==="contactModal") closeContact();
+}
+
+</script>
+
+</body>
+</html>

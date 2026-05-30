@@ -1,0 +1,502 @@
+body{
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    direction: rtl;
+    background:
+    linear-gradient(to bottom, #f9f6f1, #f3ece3);
+    color:#4a4038;
+    padding-top:90px;
+}
+
+/* ===== HEADER ===== */
+
+header{
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(14px);
+
+    padding:20px 60px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+
+    box-sizing:border-box;
+
+    border-bottom:1px solid rgba(176,139,87,0.15);
+
+    box-shadow:
+    0 4px 20px rgba(0,0,0,0.03);
+}
+header h1{
+    font-family:'Playfair Display', serif;
+    font-size:32px;
+    color:#2f2a26;
+    letter-spacing:1px;
+}
+nav a{
+    text-decoration:none;
+    color:#4a4038;
+    margin-right:25px;
+    font-weight:600;
+    position:relative;
+    transition:0.3s;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    bottom:-6px;
+    right:0;
+
+    width:0;
+    height:2px;
+
+    background:#b08b57;
+
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#b08b57;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:50px 80px;
+    gap:50px;
+
+    background:
+    radial-gradient(circle at top right,#efe4d7,transparent 40%);
+}
+.hero-text h2{
+    font-size:58px;
+    line-height:1.3;
+    color:#2f2a26;
+    font-family:'Playfair Display', serif;
+}
+
+.hero-text p{
+    font-size:20px;
+    color:#7a6d60;
+    margin:25px 0;
+}
+.hero-text{width:45%;}
+.hero-image{width:50%;}
+
+.hero-image img{
+    width:100%;
+    height:700px;
+
+    object-fit:cover;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,0.12);
+}
+
+/* ===== PRODUCTS ===== */
+
+.products{
+    padding:120px 60px;
+    text-align:center;
+}
+.products h2{
+    font-size:42px;
+
+    font-family:'Playfair Display', serif;
+
+    color:#2f2a26;
+
+    margin-bottom:50px;
+}
+
+.tabs{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:40px;
+}
+
+.tab{
+    padding:10px 25px;
+   border:1px solid rgba(176,139,87,0.35);
+    background:transparent;
+    color:#6b6155;
+    border-radius:50px;
+    cursor:pointer;
+    transition: 0.3s ease;
+}
+
+.tab.active,
+.tab:hover{
+    background:#6b6155; /* عند التمرير يتحول للرمادي الدافئ */
+    color:#f8f5f0; /* النص بالبيج الفاتح للتباين */
+}
+
+.products-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+/* ===== CARD ===== */
+
+.card{
+    width:300px;
+    position:relative;
+    background:
+    rgba(255,255,255,0.75);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:0.4s ease;
+
+    border:
+    1px solid rgba(176,139,87,0.15);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.04);
+}
+
+.card:hover{
+    transform:
+    translateY(-10px)
+    scale(1.02);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width:100%;
+    height:420px;
+
+    object-fit:cover;
+
+    transition:0.4s;
+}
+
+.card:hover img{
+    transform:scale(1.05);
+}
+.card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    to top,
+    rgba(0,0,0,0.18),
+    transparent);
+
+    opacity:0;
+
+    transition:0.4s;
+}
+
+.card:hover::after{
+    opacity:1;
+}
+
+
+/* ===== LUXURY PRODUCT MODAL ===== */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(40, 38, 36, 0.6); /* خلفية داكنة دافئة بدلاً من الأسود الصامت */
+    z-index:2000;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    backdrop-filter: blur(8px);
+}
+
+/* كارد فاخر */
+.modal-content{
+   background:
+linear-gradient(to bottom,#ffffff,#faf6f1);
+    width: 100%;
+    max-width: 450px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    animation: pop 0.3s ease;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+    font-family: 'Cairo', sans-serif;
+    border: 1px solid #ede9e4;
+}
+
+/* صورة بشكل فاخر */
+.modal-content img{
+    width:100%;
+    max-height:300px;
+    object-fit:contain; 
+    background:#fdfcfb; /* خلفية بيج فاتحة جداً تحت الصورة */
+    padding:10px;
+}
+
+/* hover بسيط داخل المودال */
+.modal-content img:hover{
+    transform: scale(1.05);
+}
+
+/* النص */
+.modal-content h2{
+    margin:15px 0 5px;
+    font-size:22px;
+    color:#52493e; /* رمادي ترابي غامق يبرز العنوان */
+    font-family: 'Playfair Display', serif;
+}
+
+.modal-content p{
+    margin:6px 0;
+    font-size:15px;
+    color:#666666;
+}
+
+/* زر الإغلاق */
+.close-btn{
+    position:absolute;
+    top:12px;
+    left:12px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background: rgba(107, 97, 85, 0.3); /* متناسق مع الهوية */
+    color:#ffffff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:20px;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    background: rgba(107, 97, 85, 0.6);
+}
+
+/* انيميشن فاخر */
+@keyframes pop{
+    from{
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* ===== VIDEO ===== */
+
+.video-section{
+    padding:120px 60px;
+    text-align:center;
+}
+
+.video-text h2{
+    font-size:42px;
+
+    font-family:'Playfair Display', serif;
+
+    color:#2f2a26;
+
+    margin-bottom:15px;
+}
+
+.video-text p{
+    color:#7a6d60;
+
+    margin-bottom:40px;
+
+    font-size:18px;
+}
+
+.video-container{
+    max-width:800px;
+    margin:auto;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    border-radius:25px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.08);
+}
+
+.video-container video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+/* ===== CONTACT BUTTON ===== */
+
+.contact-btn{
+    position:fixed;
+    bottom:25px;
+    left:25px;
+    background:#6b6155; /* زر اتصال متناسق */
+    color:#f8f5f0;
+    padding:12px 25px;
+    border-radius:50px;
+    text-decoration:none;
+    box-shadow: 0 5px 15px rgba(107, 97, 85, 0.3);
+    transition: 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: #52493e;
+    box-shadow: 0 8px 20px rgba(107, 97, 85, 0.4);
+}
+
+/* ===== TABS FIX ===== */
+
+.tab-content{
+    display:none;
+}
+
+.tab-content.active{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+
+
+.shop-btn{
+    display:inline-block;
+
+    background:
+    linear-gradient(135deg,#b08b57,#8c6b43);
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:15px 38px;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 10px 25px rgba(176,139,87,0.25);
+}
+
+.shop-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 15px 30px rgba(176,139,87,0.35);
+}
+footer{
+    background:#2f2a26;
+    color:#f3ece3;
+
+    text-align:center;
+
+    padding:30px;
+
+    margin-top:80px;
+}
+section{
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+html{
+    scroll-behavior:smooth;
+}
+/* تكبير نافذة تواصل معنا فقط */
+#contactModal .modal-content{
+    max-width: 650px;
+    width: 90%;
+    padding: 30px;
+}
+.contact-icons{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:20px;
+}
+
+.icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    color:white;
+    transition:0.3s;
+    font-size:16px;
+}
+
+/* واتساب */
+.icon.whatsapp{
+    background:#25D366;
+}
+
+/* إنستغرام */
+.icon.instagram{
+    background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+}
+
+/* سناب */
+.icon.snapchat{
+    background:#FFFC00;
+    color:#000;
+}
+
+/* خريطة */
+.icon.map{
+    background:#6b6155;
+}
+
+.icon:hover{
+    transform:translateY(-3px);
+    opacity:0.9;
+}
