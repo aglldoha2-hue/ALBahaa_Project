@@ -25,9 +25,9 @@
     <div class="hero-text">
         <h2>أحدث تصاميم العبايات الفخمة</h2>
         <p>أناقة، بساطة، وفخامة</p>
-       <a href="#products" class="shop-btn">
-    تسوق الآن
-</a>
+        <a href="#products" class="shop-btn">
+            تسوق الآن
+        </a>
     </div>
 
     <div class="hero-image">
@@ -45,6 +45,7 @@
     <button class="tab" onclick="showTab('casual')">كاجوال</button>
     <button class="tab" onclick="showTab('formal')">رسمية</button>
 </div>
+
 <!-- BLACK -->
 <div class="tab-content" id="black">
     <div class="products-container">
@@ -121,27 +122,33 @@
     <div class="modal-content">
         <span onclick="closeContact()" class="close-btn">&times;</span>
 
-       <h2>تواصل معنا</h2>
+        <h2>تواصل معنا</h2>
 
-<div class="contact-icons">
+        <form class="contact-form" id="contactForm">
 
-    <a href="https://wa.me/218945007107" target="_blank" class="icon whatsapp">
-        📞 واتساب
-    </a>
+            <input type="text" placeholder="الاسم الكامل" required>
 
-    <a href="https://www.instagram.com/Albaha_abayas" target="_blank" class="icon instagram">
-        📸 إنستغرام
-    </a>
+            <input type="email" placeholder="البريد الإلكتروني" required>
 
-    <a href="https://www.snapchat.com/add/albahaa.a" target="_blank" class="icon snapchat">
-        👻 سناب شات
-    </a>
+            <textarea placeholder="اكتبي رسالتك هنا..." required></textarea>
 
-    <a href="https://maps.app.goo.gl/HQHi5CpzveYGGgkDA?g_st=ipc" target="_blank" class="icon map">
-        📍 الموقع
-    </a>
+            <button type="submit">إرسال</button>
 
-</div>
+        </form>
+
+        <div class="contact-icons-small">
+
+            <a href="https://wa.me/218945007107" target="_blank" class="small-icon whatsapp">📞</a>
+
+            <a href="https://www.instagram.com/Albaha_abayas" target="_blank" class="small-icon instagram">📸</a>
+
+            <a href="https://www.snapchat.com/add/albahaa.a" target="_blank" class="small-icon snapchat">👻</a>
+
+            <a href="https://maps.app.goo.gl/HQHi5CpzveYGGgkDA?g_st=ipc" target="_blank" class="small-icon map">📍</a>
+
+        </div>
+
+        <div id="messagesList"></div>
     </div>
 </div>
 
@@ -165,7 +172,7 @@
 
 <script>
 
-// tabs
+// tabs (نفس فكرتك القديمة)
 function showTab(id){
 
     document.querySelectorAll(".tab-content").forEach(e=>{
@@ -180,17 +187,20 @@ function showTab(id){
 
     event.target.classList.add("active");
 }
+
+// default tab
 document.addEventListener("DOMContentLoaded", ()=>{
 
     document.getElementById("black").style.display="flex";
-
     document.querySelector(".tab").classList.add("active");
 
 });
+
 // contact
 function openContact(){
     document.getElementById("contactModal").style.display="flex";
 }
+
 function closeContact(){
     document.getElementById("contactModal").style.display="none";
 }
@@ -199,15 +209,14 @@ function closeContact(){
 document.querySelectorAll(".card").forEach(card=>{
     card.addEventListener("click", ()=>{
 
-        const modal = document.getElementById("productModal");
-        modal.style.display="flex";
+        document.getElementById("productModal").style.display="flex";
 
         document.getElementById("modalImage").src = card.dataset.img;
         document.getElementById("modalTitle").innerText = card.dataset.title;
-        document.getElementById("modalCode").innerText = "الكود: " + card.dataset.code;
-        document.getElementById("modalPrice").innerText = "السعر: " + card.dataset.price;
-        document.getElementById("modalType").innerText = "النوع: " + card.dataset.type;
-        document.getElementById("modalFabric").innerText = "القماش: " + card.dataset.fabric;
+        document.getElementById("modalCode").innerText = card.dataset.code;
+        document.getElementById("modalPrice").innerText = card.dataset.price;
+        document.getElementById("modalType").innerText = card.dataset.type;
+        document.getElementById("modalFabric").innerText = card.dataset.fabric;
 
     });
 });
@@ -222,6 +231,53 @@ window.onclick = function(e){
     if(e.target.id==="productModal") closeProduct();
     if(e.target.id==="contactModal") closeContact();
 }
+// تحميل الرسائل عند فتح الموقع
+document.addEventListener("DOMContentLoaded", () => {
+    loadMessages();
+});
+
+// حفظ رسالة في localStorage
+function saveMessage(name, email, message){
+
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+    messages.push({ name, email, message });
+
+    localStorage.setItem("messages", JSON.stringify(messages));
+}
+
+// عرض الرسائل تحت الفورم
+function loadMessages(){
+
+    let list = document.getElementById("messagesList");
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+    list.innerHTML = "";
+
+    messages.forEach(msg => {
+        list.innerHTML += `
+            <div class="saved-message">
+                <h4>${msg.name}</h4>
+                <p>${msg.email}</p>
+                <p>${msg.message}</p>
+            </div>
+        `;
+    });
+}
+
+// عند إرسال الفورم
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = this.querySelector("input[type='text']").value;
+    let email = this.querySelector("input[type='email']").value;
+    let message = this.querySelector("textarea").value;
+
+    saveMessage(name, email, message);
+    loadMessages();
+
+    this.reset();
+});
 
 </script>
 
